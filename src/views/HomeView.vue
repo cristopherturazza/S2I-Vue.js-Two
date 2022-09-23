@@ -1,6 +1,24 @@
+<template>
+  <main>
+    <div class="product-cards-container">
+      <div
+        v-for="product in productStore.products"
+        :key="product.id"
+        class="product-card-list"
+      >
+        <ProductCard :name="product.name" :image="product.image" :price="product.price" />
+      </div>
+    </div>
+  </main>
+</template>
+
 <script setup lang="ts">
-import { onBeforeMount } from "vue";
+import { onBeforeMount, onMounted } from "vue";
 import { useProductStore } from "@/stores/products";
+import { useCartStore } from "@/stores/cart";
+import ProductCard from "@/components/ProductCard.vue";
+
+const cartStore = useCartStore();
 
 const productStore = useProductStore();
 
@@ -8,11 +26,3 @@ onBeforeMount(() => {
   productStore.fetchData();
 });
 </script>
-
-<template>
-  <main>
-    <div v-for="(product, index) in productStore.products" :key="index">
-      {{ product.name }}{{ product.description }}{{ product.price }}
-    </div>
-  </main>
-</template>
