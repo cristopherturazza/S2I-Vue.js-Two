@@ -1,12 +1,19 @@
 <template>
   <main>
-    <div class="product-cards-container">
-      <div
-        v-for="product in productStore.products"
-        :key="product.id"
-        class="product-card-list"
-      >
-        <ProductCard :name="product.name" :image="product.image" :price="product.price" />
+    <div class="wrapper flex justify-evenly">
+      <div class="product-cards-container">
+        <div
+          v-for="product in productStore.products"
+          :key="product.id"
+          class="product-card-list"
+        >
+          <ProductCard
+            :id="product.id"
+            :name="product.name"
+            :image="product.image"
+            :price="product.price"
+          />
+        </div>
       </div>
     </div>
   </main>
@@ -26,3 +33,9 @@ onBeforeMount(() => {
   productStore.fetchData();
 });
 </script>
+
+<style scoped>
+.product-cards-container {
+  @apply grid grid-cols-2 m-4;
+}
+</style>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ProductView from "../views/ProductView.vue";
 import CartView from "../views/CartView.vue";
+import NotFoundView from "../views/NotFoundView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,7 +13,7 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/product",
+      path: "/product/:id",
       name: "product",
       component: () => import("../views/ProductView.vue"),
     },
@@ -21,6 +22,7 @@ const router = createRouter({
       name: "cart",
       component: () => import("../views/CartView.vue"),
     },
+    { path: "/:catchAll(.*)", component: NotFoundView },
   ],
 });
 
