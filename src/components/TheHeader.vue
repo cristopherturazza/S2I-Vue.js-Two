@@ -6,7 +6,7 @@
           Kreas
         </h1>
       </RouterLink>
-      <h5 class="text-sand font-extralight tracking-widest">Marketplace</h5>
+      <h5 class="text-stone-50 font-extralight tracking-widest">Marketplace</h5>
     </div>
   </div>
 </template>
