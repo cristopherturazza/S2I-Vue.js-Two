@@ -7,9 +7,23 @@ import router from "./router";
 import "./assets/main.css";
 
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { CoTrash } from "oh-vue-icons/icons";
+import {
+  CoTrash,
+  MdShoppingcartcheckoutSharp,
+  MdDone,
+  MdShoppingcartTwotone,
+  FaHome,
+  MdDiscountTwotone,
+} from "oh-vue-icons/icons";
 
-addIcons(CoTrash);
+addIcons(
+  FaHome,
+  CoTrash,
+  MdShoppingcartcheckoutSharp,
+  MdDone,
+  MdShoppingcartTwotone,
+  MdDiscountTwotone
+);
 
 const app = createApp(App);
 

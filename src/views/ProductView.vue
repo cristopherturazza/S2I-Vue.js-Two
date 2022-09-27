@@ -32,12 +32,21 @@
           </div>
         </div>
       </div>
-      <div class="button-container flex flex-row justify-center">
+      <div
+        class="button-container flex flex-row justify-center transition-all ease-in duration-300"
+      >
         <div
+          v-if="!isAdded"
           @click="addToCart"
           class="button-cart text-stone-50 bg-meat hover:bg-mediumgreen cursor-pointer rounded-xl mt-4 shadow-xl py-3 w-full text-center"
         >
           Add to Cart
+        </div>
+        <div
+          v-else
+          class="button-cart text-stone-50 bg-darkgreen cursor-pointer rounded-xl mt-4 shadow-xl py-3 w-full text-center"
+        >
+          Added <v-icon name="md-done" animation="pulse" speed="fast"></v-icon>
         </div>
       </div>
       <div class="navbar flex flex-row font-light justify-between mt-6">
@@ -66,6 +75,7 @@ const route = useRoute();
 
 const productData = ref();
 const currentQuantity = ref(1);
+const isAdded = ref<boolean>(false);
 
 // search correct product by params
 
@@ -91,6 +101,11 @@ const addToCart = () => {
     quantity: currentQuantity.value,
   };
   cartStore.addProduct(add);
+  isAdded.value = true;
+  setTimeout(() => {
+    isAdded.value = false;
+  }, 2000);
+  currentQuantity.value = 1;
 };
 </script>
 
