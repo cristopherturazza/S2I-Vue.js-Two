@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col">
+  <div v-if="productData" class="flex flex-col">
     <img :src="productData?.image" :alt="productData?.name" />
-    <div class="info-container my-6 ml-8 mr-12 text-stone-800">
+    <div class="info-container my-6 ml-8 mr-8 text-stone-800">
       <h1 class="mb-4 font-black text-4xl">
         {{ productData?.name }}
       </h1>
@@ -38,7 +38,7 @@
         <div
           v-if="!isAdded"
           @click="addToCart"
-          class="button-cart text-stone-50 bg-meat hover:bg-mediumgreen cursor-pointer rounded-xl mt-4 shadow-xl py-3 w-full text-center"
+          class="button-cart text-stone-50 font-bold bg-meat hover:bg-mediumgreen cursor-pointer rounded-xl mt-4 shadow-xl py-3 w-full text-center"
         >
           Add to Cart
         </div>
@@ -51,13 +51,35 @@
       </div>
       <div class="navbar flex flex-row font-light justify-between mt-6">
         <RouterLink to="/">
-          <span class="hover:text-mediumgreen">&lt Back</span></RouterLink
+          <div
+            class="text-sm text-stone-50 bg-darkgreen py-2 pr-4 pl-2 rounded-xl hover:bg-mediumgreen"
+          >
+            <v-icon name="bi-chevron-left"></v-icon>
+            Back
+          </div></RouterLink
         >
         <RouterLink to="/cart">
-          <span class="hover:text-mediumgreen"> Checkout &gt</span></RouterLink
-        >
+          <div
+            class="text-sm text-stone-50 bg-darkgreen py-2 pl-4 pr-2 rounded-xl hover:bg-mediumgreen"
+          >
+            Cart
+            <v-icon name="bi-chevron-right"></v-icon></div
+        ></RouterLink>
       </div>
     </div>
+  </div>
+  <div v-else class="flex flex-col items-center mt-12">
+    <v-icon name="md-erroroutline-outlined" scale="5" class="text-meat"></v-icon>
+    <h1 class="text-xl font-bold text-center mx-12 mt-4">
+      This product not exist or is actually unavalaible
+    </h1>
+    <RouterLink to="/"
+      ><div
+        class="mt-16 text-lg text-stone-50 bg-meat py-2 px-4 rounded-xl hover:bg-mediumgreen"
+      >
+        Back Home
+      </div></RouterLink
+    >
   </div>
 </template>
 
@@ -66,7 +88,6 @@ import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useCartStore } from "@/stores/cart";
 import { useProductStore } from "@/stores/products";
-import type Product from "@/types/Product";
 import type CartProduct from "@/types/CartProduct";
 
 const productStore = useProductStore();

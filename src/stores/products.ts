@@ -1,11 +1,12 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
+import { useStorage } from "@vueuse/core";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import type Product from "@/types/Product";
 
 export const useProductStore = defineStore("products", () => {
-  const products = ref<Product[]>();
+  const products = useStorage<Product[]>("products", []);
   async function fetchData() {
     try {
       const data = await axios.get(

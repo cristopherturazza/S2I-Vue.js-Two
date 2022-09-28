@@ -8,8 +8,8 @@
       </RouterLink>
       <h5 class="text-stone-50 font-extralight tracking-widest">Marketplace</h5>
     </div>
-    <RouterLink to="/cart">
-      <div class="cart-link mt-2 relative">
+    <div v-if="!isCart" class="cart-link mt-2 relative">
+      <RouterLink to="/cart">
         <v-icon
           name="md-shoppingcartcheckout-sharp"
           scale="2"
@@ -17,19 +17,36 @@
         ></v-icon>
         <div
           v-if="cartStore.productCounter > 0"
-          class="cart-counter rounded-full text-stone-800 bg-lightgreen absolute text-xs px-1 -top-2 -right-1 drop-shadow-xl"
+          class="cart-counter rounded-full text-stone-800 bg-lightgreen absolute text-xs px-1 -top-5 -right-1 drop-shadow-xl"
         >
           {{ cartStore.cartCounter }}
         </div>
-      </div>
-    </RouterLink>
+      </RouterLink>
+    </div>
+    <div v-else class="flex flex-row cart-link mt-2 relative">
+      <RouterLink to="/">
+        <v-icon name="bi-chevron-left" scale="2" class="text-stone-50"></v-icon>
+        <v-icon
+          name="fa-home"
+          scale="2"
+          class="text-stone-50 hover:drop-shadow-xl"
+        ></v-icon>
+      </RouterLink>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useCartStore } from "@/stores/cart";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
 const cartStore = useCartStore();
+const route = useRoute();
+
+const isCart = computed<boolean>(() => {
+  return route.path === "/cart" ? true : false;
+});
 </script>
 
 <style scoped></style>

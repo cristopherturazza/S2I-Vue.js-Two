@@ -10,6 +10,7 @@ module.exports = {
       lightmeat: "#f1dada",
       sand: "#F2E8CF",
       lightgreen: "#A7C957",
+      verylightgreen: "#cce09f",
       mediumgreen: "#6A994E",
       darkgreen: "#386641",
       stone: colors.stone,

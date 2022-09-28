@@ -1,9 +1,10 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
+import { useStorage } from "@vueuse/core";
 import type CartProduct from "@/types/CartProduct";
 
 export const useCartStore = defineStore("cart", () => {
-  const cart = ref<CartProduct[]>([]);
+  const cart = useStorage<CartProduct[]>("cart", []);
 
   function addProduct(props: CartProduct) {
     const data: CartProduct = {
@@ -41,7 +42,7 @@ export const useCartStore = defineStore("cart", () => {
   });
 
   const discount = computed<boolean>(() => {
-    return productCounter.value >= 3 ? true : false;
+    return productCounter.value > 3 ? true : false;
   });
 
   const total = computed<number>(() => {

@@ -14,6 +14,9 @@ import {
   MdShoppingcartTwotone,
   FaHome,
   MdDiscountTwotone,
+  MdErroroutlineOutlined,
+  BiChevronLeft,
+  BiChevronRight,
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -22,7 +25,10 @@ addIcons(
   MdShoppingcartcheckoutSharp,
   MdDone,
   MdShoppingcartTwotone,
-  MdDiscountTwotone
+  MdDiscountTwotone,
+  MdErroroutlineOutlined,
+  BiChevronLeft,
+  BiChevronRight
 );
 
 const app = createApp(App);
