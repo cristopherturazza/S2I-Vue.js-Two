@@ -4,7 +4,7 @@
     class="flex flex-col lg:flex-row justify-between lg:justify-none min-h-[75vh] text-stone-800"
   >
     <div
-      class="my-6 mx-8 sm:mx-12 md:mx-20 lg:mb-16 lg:mt-12 lg:ml-28 lg:mr-0 lg:pr-32 xl:pr-24 xl:ml-48 lg:border-r lg:border-stone-300"
+      class="my-6 mx-8 sm:mx-12 md:mx-20 lg:mb-16 lg:mt-12 lg:ml-28 lg:mr-0 lg:pr-32 xl:pr-24 xl:ml-48 2xl:ml-80 2xl:pr-40 lg:border-r lg:border-stone-300"
     >
       <h1 class="font-black text-5xl">Cart</h1>
       <div class="cart-list-container mt-8">
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div
-      class="flex flex-col justify-end mx-8 sm:mx-12 md:mx-20 lg:mr-28 lg:ml-24 xl:mr-48 lg:mb-12"
+      class="flex flex-col justify-end mx-8 sm:mx-12 md:mx-20 lg:mr-28 lg:ml-24 xl:mr-48 2xl:mr-80 lg:mb-12"
     >
       <div v-if="cartStore.discount" class="flex flex-col my-6">
         <div
