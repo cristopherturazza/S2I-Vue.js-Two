@@ -36,12 +36,11 @@
 <script setup lang="ts">
 import { onBeforeMount, onMounted } from "vue";
 import { useProductStore } from "@/stores/products";
-import { useCartStore } from "@/stores/cart";
 import ProductCard from "@/components/ProductCard.vue";
 
-const cartStore = useCartStore();
-
 const productStore = useProductStore();
+
+// fetch from APIs if the store is empty
 
 onBeforeMount(() => {
   if (productStore.products.length) return null;

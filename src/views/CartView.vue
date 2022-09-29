@@ -108,9 +108,13 @@ import CartEntryCard from "@/components/CartEntryCard.vue";
 const cartStore = useCartStore();
 const buyText = ref("Buy");
 
+// change the text of the fake buy button
+
 const buyButton = () => {
   buyText.value = "Thank you! This is a sample project!";
 };
+
+// add quantity to the cart entry
 
 const addQuantity = (id: string) => {
   const target = cartStore.cart.find((cartEntry) => cartEntry.id === id);
@@ -120,6 +124,8 @@ const addQuantity = (id: string) => {
   }
 };
 
+// remove quantity to the cart entry
+
 const removeQuantity = (id: string) => {
   const target = cartStore.cart.find((cartEntry) => cartEntry.id === id);
   if (target && target.quantity > 1) {
@@ -128,10 +134,10 @@ const removeQuantity = (id: string) => {
   }
 };
 
+// remove a cart Entry
+
 const removeEntry = (id: string) => {
   const index = cartStore.cart.findIndex((cartEntry) => cartEntry.id === id);
   cartStore.cart.splice(index, 1);
 };
 </script>
-
-<style></style>

@@ -17,5 +17,3 @@ import TheFooter from "./components/TheFooter.vue";
     </footer>
   </div>
 </template>
-
-<style scoped></style>

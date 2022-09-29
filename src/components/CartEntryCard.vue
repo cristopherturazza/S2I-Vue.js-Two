@@ -47,6 +47,7 @@
 </template>
 
 <script setup lang="ts">
+// props from the parent
 const props = defineProps({
   id: String,
   name: String,
@@ -56,7 +57,7 @@ const props = defineProps({
   subTotal: Number,
 });
 
+//emit events to the parent
+
 const emit = defineEmits(["removeQuantity", "addQuantity", "removeEntry"]);
 </script>
-
-<style scoped></style>

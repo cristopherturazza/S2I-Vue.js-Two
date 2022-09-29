@@ -1,46 +1,70 @@
-# vue
+# Kreas Marketplace
 
-This template should help get you started developing with Vue 3 in Vite.
+Simple mobile-first e-commerce app, made with Vue.js and Tailwind CSS.
 
-## Recommended IDE Setup
+## :question: About
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Created for the Vue.js start2impact course, this app let you buy the products made by Kreas, 
+a fake cultured meat company. There 3 interfaces:
 
-## Type Support for `.vue` Imports in TS
+- Home: with the product list
+- Product Details: product overview
+- Cart: The final step where you can see the products you have added
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+The Buy button in the Cart view, obviously, doesn't works.<br>
+The cart is persistent using the Local Storage.
+Enojy It!
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## :computer: Languages
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- HTML5
+- CSS3
+- Javascript ES6
 
-## Customize configuration
+## :bulb:Tools 
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- Vue.js 3 - Composition API
+- Vue Router
+- Pinia State Management
+- useStorage Hook
+- uuid v4
+- Tailwind CSS
+- Oh Vue Icons
 
-## Project Setup
+## :floppy_disk: Installation
 
-```sh
-npm install
-```
+First of all, you need Node.js installed.<br>
+If you don't have it, you can download it here:
+[Node.js](https://nodejs.org/it/download/)<br>
+After the installation, you're ready to go.
 
-### Compile and Hot-Reload for Development
+### 1 - Clone the repository
 
-```sh
-npm run dev
-```
+`git clone https://github.com/cristopherturazza/S2I-Vue.js`
 
-### Type-Check, Compile and Minify for Production
+### 2 - Install the dependencies
 
-```sh
-npm run build
-```
+`npm install`
 
-### Lint with [ESLint](https://eslint.org/)
+### 3 - Build it!
 
-```sh
-npm run lint
-```
+`npm run build`
+
+### 4 - Open in the browser
+
+Check out for index.html in the /build folder.
+
+## :zap: Try it!
+
+Elsewhere, you can simply try it here:
+[Kreas Marketplace](https://kreascultured.netlify.app/)
+
+
+## :page_with_curl: License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## :e-mail: Contact Me
+
+Any questions? Send me an e-mail here: cristopherturazza@gmail.com <br>
+You can find my Linkedin profile here: https://www.linkedin.com/in/cristopher-turazza-0863a026/

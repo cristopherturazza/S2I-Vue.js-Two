@@ -18,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+//props from the parent
 const props = defineProps({
   id: String,
   name: String,

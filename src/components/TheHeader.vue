@@ -54,13 +54,15 @@ import { useRoute } from "vue-router";
 const cartStore = useCartStore();
 const route = useRoute();
 
+// if isCart show toHome Icon
+
 const isCart = computed<boolean>(() => {
   return route.path === "/cart" ? true : false;
 });
+
+// if isHome don't show left arrow
 
 const isHome = computed<boolean>(() => {
   return route.path === "/" ? true : false;
 });
 </script>
-
-<style scoped></style>

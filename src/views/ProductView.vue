@@ -113,6 +113,8 @@ const removeQuantity = () => {
   else currentQuantity.value--;
 };
 
+// add to cart method
+
 const addToCart = () => {
   const add: CartProduct = {
     id: productData.value.id,
@@ -122,6 +124,9 @@ const addToCart = () => {
     quantity: currentQuantity.value,
   };
   cartStore.addProduct(add);
+
+  // "Added" animation
+
   isAdded.value = true;
   setTimeout(() => {
     isAdded.value = false;
@@ -129,5 +134,3 @@ const addToCart = () => {
   currentQuantity.value = 1;
 };
 </script>
-
-<style></style>
