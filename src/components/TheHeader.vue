@@ -1,14 +1,24 @@
 <template>
-  <div class="bg-meat flex flex-row justify-between items-center h-28 shadow-xl z-10 p-8">
-    <div class="flex flex-col leading-3">
-      <RouterLink to="/">
-        <h1 class="font-black text-stone-50 text-4xl text-white tracking-tighter">
-          Kreas
-        </h1>
-      </RouterLink>
-      <h5 class="text-stone-50 font-extralight tracking-widest">Marketplace</h5>
-    </div>
-    <div v-if="!isCart" class="cart-link mt-2 relative">
+  <div
+    class="bg-meat flex flex-row justify-between items-center h-28 shadow-xl z-10 p-8 sm:p-12 md:px-20 lg:px-28 xl:px-48 2xl:px-80"
+  >
+    <RouterLink to="/">
+      <div class="flex flex-row items-center">
+        <v-icon
+          v-if="!isHome && !isCart"
+          name="bi-chevron-left"
+          scale="2"
+          class="text-stone-50"
+        ></v-icon>
+        <div class="flex flex-col leading-3">
+          <h1 class="font-black text-stone-50 text-4xl text-white tracking-tighter">
+            Kreas
+          </h1>
+          <h5 class="text-stone-50 font-extralight tracking-widest">Marketplace</h5>
+        </div>
+      </div>
+    </RouterLink>
+    <div v-if="!isCart" divss="cart-link mt-2 relative">
       <RouterLink to="/cart">
         <v-icon
           name="md-shoppingcartcheckout-sharp"
@@ -46,6 +56,10 @@ const route = useRoute();
 
 const isCart = computed<boolean>(() => {
   return route.path === "/cart" ? true : false;
+});
+
+const isHome = computed<boolean>(() => {
+  return route.path === "/" ? true : false;
 });
 </script>
 

@@ -1,7 +1,9 @@
 <template>
   <main>
     <div v-if="productStore.products.length" class="wrapper flex justify-evenly my-4">
-      <div class="product-cards-container">
+      <div
+        class="grid grid-cols-2 lg:grid-cols-3 m-4 sm:mx-8 sm:gap-8 md:mx-16 md:gap-12 lg:mx-24 xl:mx-44 2xl:mx-80 2xl:gap-20"
+      >
         <div
           v-for="product in productStore.products"
           :key="product.id"
@@ -16,8 +18,8 @@
         </div>
       </div>
     </div>
-    <div v-else class="wrapper flex justify-evenly">
-      <div class="flex flex-col items-center mt-12">
+    <div v-else class="wrapper flex justify-center w-full">
+      <div class="flex flex-col items-center mt-12 max-w-lg">
         <v-icon name="md-erroroutline-outlined" scale="5" class="text-meat"></v-icon>
         <h1 class="text-2xl font-bold mt-4">Data or server unavalaible.</h1>
         <p class="text-lg mx-8 mt-4 text-center">
@@ -46,9 +48,3 @@ onBeforeMount(() => {
   else productStore.fetchData();
 });
 </script>
-
-<style scoped>
-.product-cards-container {
-  @apply grid grid-cols-2 m-4;
-}
-</style>

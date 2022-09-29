@@ -1,11 +1,13 @@
 <template>
   <div class="flex flex-row">
     <RouterLink :to="{ name: 'product', params: { id: props.id } }">
-      <img class="w-20 rounded-l-xl" :src="props.image" :alt="props.name"
+      <img class="w-20 sm:w-24 md:w-28 rounded-l-xl" :src="props.image" :alt="props.name"
     /></RouterLink>
     <div class="flex flex-col ml-4">
       <RouterLink :to="{ name: 'product', params: { id: props.id } }">
-        <div class="font-semibold text-sm my-2">{{ props.name }}</div>
+        <div class="font-semibold text-sm sm:text-base my-2 sm:my-3 md:text-lg md:my-4">
+          {{ props.name }}
+        </div>
       </RouterLink>
       <div class="flex flex-row items-center">
         <div
@@ -36,9 +38,9 @@
       </div>
     </div>
   </div>
-  <div class="cart-subprice flex flex-col items-end mr-4 mt-2">
+  <div class="cart-subprice flex flex-col items-end mr-4 mt-2 lg:ml-12 xl:ml-36">
     <div class="text-2xl">€</div>
-    <div class="text-base font-semibold">
+    <div class="text-base md:text-lg lg:text-xl font-semibold">
       {{ props.subTotal?.toFixed(2).toString().replace(".", ",") }}
     </div>
   </div>

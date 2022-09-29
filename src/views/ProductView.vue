@@ -1,70 +1,70 @@
 <template>
   <div v-if="productData" class="flex flex-col">
-    <img :src="productData?.image" :alt="productData?.name" />
-    <div class="info-container my-6 ml-8 mr-8 text-stone-800">
-      <h1 class="mb-4 font-black text-4xl">
-        {{ productData?.name }}
-      </h1>
-      <p>
-        {{ productData?.description }}
-      </p>
-      <div class="flex flex-row justify-between items-center mt-8 mb-4">
-        <span class="font-semibold text-2xl"
-          >{{ productData?.price.toFixed(2).toString().replace(".", ",") }} €</span
-        >
-        <div
-          class="quantity-selector flex flex-row rounded-xl text-xl items-center font-semibold bg-stone-100 border border-stone-200"
-        >
-          <div
-            @click="removeQuantity"
-            class="less-button touch-manipulation select-none px-3 py-1 cursor-pointer rounded-l-xl hover:bg-lightgreen"
-          >
-            -
-          </div>
-          <div class="font-bold border-r border-l border-stone-200 px-3 py-1">
-            {{ currentQuantity }}
-          </div>
-          <div
-            @click="currentQuantity++"
-            class="plus-button touch-manipulation select-none px-3 py-1 cursor-pointer rounded-r-xl hover:bg-lightgreen"
-          >
-            +
-          </div>
-        </div>
+    <div
+      class="flex flex-col lg:flex-row lg:justify-center lg:shadow-md lg:my-20 lg:mx-28 xl:mx-48 2xl:mx-80 lg:rounded-xl"
+    >
+      <div>
+        <img
+          :src="productData?.image"
+          :alt="productData?.name"
+          class="lg:rounded-l-xl lg:max-w-md lg:object-fill 2xl:max-w-xl"
+        />
       </div>
       <div
-        class="button-container flex flex-row justify-center transition-all ease-in duration-300"
+        class="flex flex-col justify-between my-6 mx-8 sm:mx-12 md:mx-20 lg:mx-12 xl:mr-32 xl:ml-20 2xl:mr-56 text-stone-800"
       >
-        <div
-          v-if="!isAdded"
-          @click="addToCart"
-          class="button-cart text-stone-50 font-bold bg-meat hover:bg-mediumgreen cursor-pointer rounded-xl mt-4 shadow-xl py-3 w-full text-center"
-        >
-          Add to Cart
+        <div>
+          <h1 class="mb-4 font-black text-4xl xl:text-5xl 2xl:text-6xl">
+            {{ productData?.name }}
+          </h1>
+          <p class="lg:text-lg xl:text-xl 2xl:text-2xl">
+            {{ productData?.description }}
+          </p>
         </div>
-        <div
-          v-else
-          class="button-cart text-stone-50 bg-darkgreen cursor-pointer rounded-xl mt-4 shadow-xl py-3 w-full text-center"
-        >
-          Added <v-icon name="md-done" animation="pulse" speed="fast"></v-icon>
+        <div>
+          <div class="flex flex-row justify-between mt-8 mb-4">
+            <span class="font-semibold text-2xl"
+              >{{ productData?.price.toFixed(2).toString().replace(".", ",") }} €</span
+            >
+            <div
+              class="quantity-selector flex flex-row rounded-xl text-xl items-center font-semibold bg-stone-100 border border-stone-200"
+            >
+              <div
+                @click="removeQuantity"
+                class="less-button touch-manipulation select-none px-3 py-1 cursor-pointer rounded-l-xl hover:bg-lightgreen"
+              >
+                -
+              </div>
+              <div class="font-bold border-r border-l border-stone-200 px-3 py-1">
+                {{ currentQuantity }}
+              </div>
+              <div
+                @click="currentQuantity++"
+                class="plus-button touch-manipulation select-none px-3 py-1 cursor-pointer rounded-r-xl hover:bg-lightgreen"
+              >
+                +
+              </div>
+            </div>
+          </div>
+          <div
+            class="button-container flex flex-row justify-center transition-all ease-in duration-300"
+          >
+            <div
+              v-if="!isAdded"
+              @click="addToCart"
+              class="button-cart text-stone-50 font-bold bg-meat hover:bg-mediumgreen cursor-pointer rounded-xl my-4 sm:my-6 md:my-8 lg:my-4 shadow-xl py-3 md:py-4 w-full max-w-sm text-center"
+            >
+              Add to Cart
+            </div>
+            <div
+              v-else
+              class="button-cart text-stone-50 bg-darkgreen cursor-pointer rounded-xl my-4 sm:my-6 md:my-8 shadow-xl py-3 md:py-4 lg:my-4 w-full max-w-sm text-center"
+            >
+              Added
+              <v-icon name="md-done" animation="pulse" speed="fast"></v-icon>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="navbar flex flex-row font-light justify-between mt-6">
-        <RouterLink to="/">
-          <div
-            class="text-sm text-stone-50 bg-darkgreen py-2 pr-4 pl-2 rounded-xl hover:bg-mediumgreen"
-          >
-            <v-icon name="bi-chevron-left"></v-icon>
-            Back
-          </div></RouterLink
-        >
-        <RouterLink to="/cart">
-          <div
-            class="text-sm text-stone-50 bg-darkgreen py-2 pl-4 pr-2 rounded-xl hover:bg-mediumgreen"
-          >
-            Cart
-            <v-icon name="bi-chevron-right"></v-icon></div
-        ></RouterLink>
       </div>
     </div>
   </div>

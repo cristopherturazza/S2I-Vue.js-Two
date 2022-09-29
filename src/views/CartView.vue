@@ -1,13 +1,15 @@
 <template>
   <div
     v-if="cartStore.cart.length"
-    class="flex flex-col justify-between min-h-[75vh] text-stone-800"
+    class="flex flex-col lg:flex-row justify-between lg:justify-none min-h-[75vh] text-stone-800"
   >
-    <div class="my-6 ml-8 mr-8">
+    <div
+      class="my-6 mx-8 sm:mx-12 md:mx-20 lg:mb-16 lg:mt-12 lg:ml-28 lg:mr-0 lg:pr-32 xl:pr-24 xl:ml-48 lg:border-r lg:border-stone-300"
+    >
       <h1 class="font-black text-5xl">Cart</h1>
       <div class="cart-list-container mt-8">
         <div
-          class="flex flex-row justify-between mb-4 items-center bg-stone-100 rounded-xl shadow-md"
+          class="flex flex-row justify-between mb-4 xl:mb-8 items-center bg-stone-100 rounded-xl shadow-md"
           v-for="cartEntry in cartStore.cart"
           :key="cartEntry.id"
         >
@@ -25,24 +27,25 @@
         </div>
       </div>
     </div>
-    <div class="mx-8">
-      <div
-        v-if="cartStore.discount"
-        class="flex flex-col justify-between items-start mt-6"
-      >
-        <div class="bg-verylightgreen w-full rounded-xl py-4 flex flex-row items-center">
-          <v-icon name="md-done" scale="1" class="ml-4 text-darkgreen"></v-icon>
+    <div
+      class="flex flex-col justify-end mx-8 sm:mx-12 md:mx-20 lg:mr-28 lg:ml-24 xl:mr-48 lg:mb-12"
+    >
+      <div v-if="cartStore.discount" class="flex flex-col my-6">
+        <div
+          class="bg-verylightgreen w-full rounded-xl py-4 xl:px-16 flex flex-row justify-center items-center"
+        >
+          <v-icon name="md-done" scale="1.5" class="ml-4 text-darkgreen"></v-icon>
           <div class="flex flex-row mx-2">
-            <h1 class="text-darkgreen font-black">10% PROMO ACTIVE:</h1>
+            <h1 class="text-darkgreen font-black">10% PROMO:</h1>
             <span class="line-through text-meat ml-4"
               >{{ cartStore.total.toFixed(2).toString().replace(".", ",") }} €</span
             >
           </div>
         </div>
-        <div class="flex flex-row w-full justify-between items-center mt-4">
-          <h1 class="font-bold text-3xl">Total:</h1>
+        <div class="flex flex-row w-full justify-between items-end mt-4">
+          <h1 class="font-bold text-3xl xl:text-4xl">Total:</h1>
           <div class="discount-total-price flex flex-row items-end">
-            <div class="total-cart-price text-4xl font-black">
+            <div class="total-cart-price text-4xl xl:text-5xl font-black">
               {{ cartStore.finalTotal.toFixed(2).toString().replace(".", ",") }}
               €
             </div>
@@ -51,7 +54,9 @@
       </div>
 
       <div v-else class="flex flex-col justify-between items-start my-6">
-        <div class="bg-lightmeat w-full rounded-xl py-4 flex flex-row items-center">
+        <div
+          class="bg-lightmeat w-full rounded-xl py-4 xl:px-10 flex flex-row items-center"
+        >
           <v-icon name="md-discount-twotone" scale="1.5" class="ml-4 text-meat"></v-icon>
           <div class="flex flex-col mx-4">
             <h1 class="text-meat text-xl font-black">10% OFF PROMO</h1>
@@ -61,17 +66,17 @@
             </p>
           </div>
         </div>
-        <div class="flex flex-row w-full items-center justify-between mt-4">
-          <h1 class="font-bold text-3xl">Total:</h1>
-          <div class="total-cart-price text-4xl font-black">
+        <div class="flex flex-row w-full items-end justify-between mt-4">
+          <h1 class="font-bold text-3xl xl:text-4xl">Total:</h1>
+          <div class="total-cart-price text-4xl xl:text-5xl font-black">
             {{ cartStore.finalTotal.toFixed(2).toString().replace(".", ",") }} €
           </div>
         </div>
       </div>
-      <div class="flex justify-center w-full my-8">
+      <div class="flex justify-center w-full my-12">
         <div
           @click="buyButton"
-          class="text-stone-50 font-bold bg-meat w-full hover:bg-mediumgreen cursor-pointer rounded-xl shadow-xl py-3 text-center"
+          class="text-stone-50 font-bold bg-meat w-full max-w-sm hover:bg-mediumgreen cursor-pointer rounded-xl shadow-xl py-3 text-center"
         >
           {{ buyText }}
         </div>
